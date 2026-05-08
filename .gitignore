@@ -39,6 +39,14 @@ testem.log
 /typings
 __screenshots__/
 
+# Ignore environment files in backend
+backend/.env
+
+
 # System files
 .DS_Store
 Thumbs.db
+
+# Backend Node 
+backend/node_modules
+
