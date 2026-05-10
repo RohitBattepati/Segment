@@ -9,9 +9,21 @@
   <section class="pt-2 text-center">
     @if (resultsHeader) {
       <p>
-        You want to {{ resultsHeader }}, Here are the steps you have to check off to complete the
+        You want to {{ resultsHeader }}, Here are the tasks you have to check off to complete the
         task:
       </p>
+    }
+    <br />
+
+    @if (apiResponse().length > 0) {
+      <div class="subtask-list">
+        @for (subTask of apiResponse(); track subTask) {
+          <label class="subtask-item">
+            <input type="checkbox" />
+            <span>{{ subTask }}</span>
+          </label>
+        }
+      </div>
     }
   </section>
 </div>

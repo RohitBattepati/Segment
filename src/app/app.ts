@@ -17,7 +17,7 @@ export class App {
   protected readonly title = signal('Segment');
   searchString: string = '';
   resultsHeader: string = '';
-  apiResponse: any = '';
+  apiResponse = signal<string[]>([])
 
   constructor(private httpClient: HttpClient) {}
 
@@ -32,7 +32,7 @@ export class App {
       })
       .subscribe((res) => {
         console.log(res);
-        this.apiResponse = JSON.parse(res.data);
+      this.apiResponse.set(JSON.parse(res.data))
         console.log(this.apiResponse, 'JSON API RES');
       });
   }
